@@ -75,7 +75,8 @@ sekunde = 55
 minute = 95
 gestartet = false
 pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
-music.setVolume(20)
+music.setVolume(74)
+soundExpression.hello.play()
 Anzeige()
 loops.everyInterval(1000, function () {
 	
