@@ -40,24 +40,24 @@ function Anzeige () {
     minute,
     1
     )
-    OLED_I2C.rect(
-    66,
-    15,
-    73,
-    22,
-    1
-    )
-    OLED_I2C.rect(
-    66,
-    35,
-    73,
-    42,
-    1
-    )
     OLED_I2C.number_32x40(
     67,
     12,
     sekunde,
+    1
+    )
+    OLED_I2C.rect(
+    62,
+    18,
+    66,
+    24,
+    1
+    )
+    OLED_I2C.rect(
+    62,
+    35,
+    66,
+    41,
     1
     )
     OLED_I2C.draw()
@@ -75,7 +75,7 @@ sekunde = 55
 minute = 95
 gestartet = false
 pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
-music.setVolume(74)
+music.setVolume(21)
 soundExpression.hello.play()
 Anzeige()
 loops.everyInterval(1000, function () {
