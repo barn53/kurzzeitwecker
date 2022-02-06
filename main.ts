@@ -1,5 +1,11 @@
-pins.onPulsed(DigitalPin.P8, PulseValue.High, function () {
-	
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    if (gestartet) {
+        gestartet = false
+        basic.showIcon(IconNames.No)
+    } else {
+        gestartet = true
+        basic.showIcon(IconNames.Yes)
+    }
 })
 input.onButtonPressed(Button.A, function () {
     MinuteErhöhen()
@@ -54,12 +60,17 @@ function MinuteErhöhen () {
         minute = 0
     }
 }
+let gestartet = false
 let minute = 0
 let sekunde = 0
 OLED_I2C.init(60)
 sekunde = 55
 minute = 95
+gestartet = false
 Zeige_Zeit()
+loops.everyInterval(1000, function () {
+	
+})
 basic.forever(function () {
 	
 })
