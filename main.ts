@@ -1,20 +1,19 @@
-input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+input.onPinPressed(TouchPin.P0, function () {
     if (gestartet) {
         gestartet = false
-        basic.showIcon(IconNames.No)
     } else {
         gestartet = true
-        basic.showIcon(IconNames.Yes)
     }
+    Anzeige()
 })
 input.onButtonPressed(Button.A, function () {
     MinuteErhöhen()
-    Zeige_Zeit()
+    Anzeige()
 })
 input.onButtonPressed(Button.AB, function () {
     minute = 0
     sekunde = 0
-    Zeige_Zeit()
+    Anzeige()
 })
 input.onButtonPressed(Button.B, function () {
     sekunde += 1
@@ -22,9 +21,15 @@ input.onButtonPressed(Button.B, function () {
         sekunde = 0
         MinuteErhöhen()
     }
-    Zeige_Zeit()
+    Anzeige()
 })
-function Zeige_Zeit () {
+function MinuteErhöhen () {
+    minute += 1
+    if (minute > 99) {
+        minute = 0
+    }
+}
+function Anzeige () {
     OLED_I2C.clear()
     OLED_I2C.number_32x40(
     0,
@@ -53,11 +58,10 @@ function Zeige_Zeit () {
     1
     )
     OLED_I2C.draw()
-}
-function MinuteErhöhen () {
-    minute += 1
-    if (minute > 99) {
-        minute = 0
+    if (gestartet) {
+        basic.showIcon(IconNames.Yes)
+    } else {
+        basic.showIcon(IconNames.No)
     }
 }
 let gestartet = false
@@ -67,7 +71,8 @@ OLED_I2C.init(60)
 sekunde = 55
 minute = 95
 gestartet = false
-Zeige_Zeit()
+pins.touchSetMode(TouchTarget.P0, TouchTargetMode.Resistive)
+Anzeige()
 loops.everyInterval(1000, function () {
 	
 })

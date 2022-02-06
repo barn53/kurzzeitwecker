@@ -5,7 +5,7 @@
         "core": "*",
         "radio": "*",
         "microphone": "*",
-        "pxt-oled_i2c": "github:barn53/pxt-oled_i2c#a0ba8edbe6dfaa7a00d0fcf96ab5304803c38f2e"
+        "pxt-oled_i2c": "github:barn53/pxt-oled_i2c#59f91b64b1c1f0f75e3cc69d80482db06dd42109"
     },
     "files": [
         "main.blocks",
