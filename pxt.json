@@ -1,0 +1,26 @@
+{
+    "name": "Kurzzeitwecker",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*",
+        "pxt-oled_i2c": "github:barn53/pxt-oled_i2c#a0ba8edbe6dfaa7a00d0fcf96ab5304803c38f2e"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.0.17",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
