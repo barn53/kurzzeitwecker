@@ -1,14 +1,3 @@
-input.onPinPressed(TouchPin.P0, function () {
-    music.stopAllSounds()
-    if (gestartet) {
-        gestartet = false
-        soundExpression.sad.play()
-    } else {
-        gestartet = true
-        soundExpression.soaring.play()
-    }
-    Anzeige()
-})
 input.onButtonPressed(Button.A, function () {
     MinutePlus()
     Anzeige()
@@ -19,6 +8,17 @@ function MinutePlus () {
         minute = 0
     }
 }
+input.onPinPressed(TouchPin.P2, function () {
+    music.stopAllSounds()
+    if (gestartet) {
+        gestartet = false
+        soundExpression.sad.play()
+    } else {
+        gestartet = true
+        soundExpression.soaring.play()
+    }
+    Anzeige()
+})
 input.onButtonPressed(Button.AB, function () {
     minute = 0
     sekunde = 0
@@ -79,7 +79,9 @@ music.setVolume(21)
 soundExpression.hello.play()
 Anzeige()
 loops.everyInterval(1000, function () {
-	
+    if (gestartet) {
+        soundExpression.giggle.play()
+    }
 })
 basic.forever(function () {
 	
