@@ -25,13 +25,16 @@ input.onButtonPressed(Button.AB, function () {
     Anzeige()
 })
 input.onButtonPressed(Button.B, function () {
+    SekundePlus()
+    Anzeige()
+})
+function SekundePlus () {
     sekunde += 1
     if (sekunde > 59) {
         sekunde = 0
         MinutePlus()
     }
-    Anzeige()
-})
+}
 function Anzeige () {
     OLED_I2C.clear()
     OLED_I2C.number_32x40(
